@@ -579,7 +579,7 @@ if (DEFINED LIBTIFF_ROOT)
         LibTIFF::LibTIFF
         PROPERTIES IMPORTED_LOCATION ${LIBTIFF_LIBRARY}
     )
-    target_link_libraries(myapp PRIVATE LibTIFF::LibTIFF)
+    target_link_libraries(${PROJECT_NAME} PRIVATE LibTIFF::LibTIFF)
 
 
     # add_library(LibTIFF STATIC IMPORTED)
