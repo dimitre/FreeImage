@@ -174,7 +174,7 @@ elseif (DEFINED PNG_LIBRARY)
 endif()
 
 if(BUILD_LIBTIFF)
-    set(FreeImage_LIBTIFF_SRCS 
+    set(FreeImage_LIBTIFF_SRCS
         Source/LibTIFF4/mkg3states.c Source/LibTIFF4/tif_error.c Source/LibTIFF4/tif_aux.c
         Source/LibTIFF4/tif_close.c Source/LibTIFF4/tif_codec.c Source/LibTIFF4/tif_color.c
         Source/LibTIFF4/tif_compress.c Source/LibTIFF4/tif_config.h
@@ -213,7 +213,7 @@ if(BUILD_ZLIB)
         ./Source/ZLib/crc32.h ./Source/ZLib/deflate.h ./Source/ZLib/gzguts.h
         ./Source/ZLib/inffast.h ./Source/ZLib/inffixed.h ./Source/ZLib/inflate.h
         ./Source/ZLib/inftrees.h ./Source/ZLib/trees.h ./Source/ZLib/zconf.h
-        ./Source/ZLib/zlib.h ./Source/ZLib/zutil.h 
+        ./Source/ZLib/zlib.h ./Source/ZLib/zutil.h
     )
     list(APPEND FreeImage_SOURCES ${FreeImage_ZLIB_SRCS})
     include_directories(Source/ZLib)
@@ -239,7 +239,7 @@ if(BUILD_JXR)
         ./Source/LibJXR/image/sys/strTransform.h ./Source/LibJXR/image/sys/windowsmediaphoto.h
         ./Source/LibJXR/image/sys/xplatform_image.h ./Source/LibJXR/image/x86/x86.h
         ./Source/LibJXR/jxrgluelib/JXRGlue.h ./Source/LibJXR/jxrgluelib/JXRMeta.h
-    )    
+    )
     list(APPEND FreeImage_SOURCES ${FreeImage_JXR_SRCS})
     include_directories(Source/LibJXR)
     include_directories(Source/LibJXR/image/sys)
@@ -565,13 +565,38 @@ include_directories(Source/LibJPEG)
 include_directories(Source/LibTIFF4)
 include_directories(Source/LibOpenJPEG)
 
+if (DEFINED LIBTIFF_ROOT)
+    find_library(
+        LIBTIFF_LIBRARY            # Variable that will hold the found path
+        NAMES tiff                 # Library names (e.g. libtiff.so, libtiff.dylib)
+        PATHS "${LIBTIFF_ROOT}/lib"  # Directories to search
+        NO_DEFAULT_PATH            # Don’t use the default system paths
+    )
+
+    # 3) Create an *imported* target that points to that file
+    add_library(LibTIFF::LibTIFF UNKNOWN IMPORTED)
+    set_target_properties(
+        LibTIFF::LibTIFF
+        PROPERTIES IMPORTED_LOCATION ${LIBTIFF_LIBRARY}
+    )
+    target_link_libraries(myapp PRIVATE LibTIFF::LibTIFF)
+
+
+    # add_library(LibTIFF STATIC IMPORTED)
+    # set_target_properties(LibTIFF PROPERTIES
+    #     IMPORTED_LOCATION "${LIBTIFF_ROOT}/lib/*"
+    # )
+    # target_include_directories(LibTIFF INTERFACE "${LIBTIFF_ROOT}/include")
+    # include_directories(${LIBTIFF_ROOT}/include)
+endif()
+
 if(BUILD_SHARED_LIBS)
-    add_library(${PROJECT_NAME} SHARED 
+    add_library(${PROJECT_NAME} SHARED
         ${FreeImage_SOURCES}
 )
 else()
     # Define the FreeImage library
-    add_library(${PROJECT_NAME} STATIC 
+    add_library(${PROJECT_NAME} STATIC
         ${FreeImage_SOURCES}
 )
 endif()
