@@ -574,7 +574,7 @@ include_directories(Source/FreeImageToolkit)
 # include_directories(Source/LibOpenJPEG)
 
 if (DEFINED LIBTIFF_ROOT)
-    add_library(LibTIFF STATIC)
+    add_library(LibTIFF STATIC IMPORTED)
     set_target_properties(LibTIFF PROPERTIES
         IMPORTED_LOCATION "${LIBTIFF_ROOT}/lib/*"
     )
@@ -584,7 +584,7 @@ endif()
 
 
 if (DEFINED LIBJPEG_ROOT)
-    add_library(LibJPEG STATIC)
+    add_library(LibJPEG STATIC IMPORTED)
     set_target_properties(LibJPEG PROPERTIES
         IMPORTED_LOCATION "${LIBJPEG_ROOT}/lib/*"
     )
