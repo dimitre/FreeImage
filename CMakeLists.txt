@@ -580,6 +580,7 @@ if (DEFINED LIBTIFF_ROOT)
     )
     target_include_directories(LibTIFF INTERFACE "${LIBTIFF_ROOT}/include")
     include_directories(${LIBTIFF_ROOT}/include)
+    list(APPEND FreeImage_LIBS LibTIFF)
     add_definitions(-DINCLUDE_LIB_TIFF4)
 
 endif()
@@ -592,6 +593,8 @@ if (DEFINED LIBJPEG_ROOT)
     )
     target_include_directories(LibJPEG INTERFACE "${LIBJPEG_ROOT}/include")
     include_directories(${LIBJPEG_ROOT}/include)
+    list(APPEND FreeImage_LIBS LibJPEG)
+
 endif()
 
 
