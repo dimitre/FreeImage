@@ -575,22 +575,6 @@ include_directories(Source/LibTIFF4)
 include_directories(Source/LibOpenJPEG)
 
 if (DEFINED LIBTIFF_ROOT)
-    # find_library(
-    #     LIBTIFF_LIBRARY            # Variable that will hold the found path
-    #     NAMES tiff                 # Library names (e.g. libtiff.so, libtiff.dylib)
-    #     PATHS "${LIBTIFF_ROOT}/lib"  # Directories to search
-    #     NO_DEFAULT_PATH            # Don’t use the default system paths
-    # )
-
-    # # 3) Create an *imported* target that points to that file
-    # add_library(LibTIFF::LibTIFF UNKNOWN IMPORTED)
-    # set_target_properties(
-    #     LibTIFF::LibTIFF
-    #     PROPERTIES IMPORTED_LOCATION ${LIBTIFF_LIBRARY}
-    # )
-    # target_link_libraries(${PROJECT_NAME} PRIVATE LibTIFF::LibTIFF)
-
-
     add_library(LibTIFF STATIC IMPORTED)
     set_target_properties(LibTIFF PROPERTIES
         IMPORTED_LOCATION "${LIBTIFF_ROOT}/lib/*"
