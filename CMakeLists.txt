@@ -171,9 +171,9 @@ if(BUILD_LIBPNG)
         Source/LibPNG/pngrio.c Source/LibPNG/pngrtran.c Source/LibPNG/pngrutil.c
         Source/LibPNG/pngset.c Source/LibPNG/pngtrans.c Source/LibPNG/pngwio.c
         Source/LibPNG/pngwrite.c Source/LibPNG/pngwtran.c Source/LibPNG/pngwutil.c
-        ./Source/LibPNG/png.h ./Source/LibPNG/pngconf.h ./Source/LibPNG/pngdebug.h
-        ./Source/LibPNG/pnginfo.h ./Source/LibPNG/pnglibconf.h ./Source/LibPNG/pngpriv.h
-        ./Source/LibPNG/pngstruct.h
+        Source/LibPNG/png.h Source/LibPNG/pngconf.h Source/LibPNG/pngdebug.h
+        Source/LibPNG/pnginfo.h Source/LibPNG/pnglibconf.h Source/LibPNG/pngpriv.h
+        Source/LibPNG/pngstruct.h
     )
     list(APPEND FreeImage_SOURCES ${FreeImage_LIBPNG_SRCS})
     include_directories(Source/LibPNG)
@@ -219,10 +219,10 @@ if(BUILD_ZLIB)
         Source/ZLib/gzclose.c Source/ZLib/gzlib.c Source/ZLib/gzread.c Source/ZLib/gzwrite.c
         Source/ZLib/infback.c Source/ZLib/inffast.c Source/ZLib/inflate.c Source/ZLib/inftrees.c
         Source/ZLib/trees.c Source/ZLib/uncompr.c Source/ZLib/zutil.c
-        ./Source/ZLib/crc32.h ./Source/ZLib/deflate.h ./Source/ZLib/gzguts.h
-        ./Source/ZLib/inffast.h ./Source/ZLib/inffixed.h ./Source/ZLib/inflate.h
-        ./Source/ZLib/inftrees.h ./Source/ZLib/trees.h ./Source/ZLib/zconf.h
-        ./Source/ZLib/zlib.h ./Source/ZLib/zutil.h
+        Source/ZLib/crc32.h Source/ZLib/deflate.h Source/ZLib/gzguts.h
+        Source/ZLib/inffast.h Source/ZLib/inffixed.h Source/ZLib/inflate.h
+        Source/ZLib/inftrees.h Source/ZLib/trees.h Source/ZLib/zconf.h
+        Source/ZLib/zlib.h Source/ZLib/zutil.h
     )
     list(APPEND FreeImage_SOURCES ${FreeImage_ZLIB_SRCS})
     include_directories(Source/ZLib)
@@ -234,20 +234,20 @@ endif()
 
 if(BUILD_JXR)
     set(FreeImage_JXR_SRCS
-        ./Source/LibJXR/image/decode/decode.c ./Source/LibJXR/image/decode/JXRTranscode.c
-        ./Source/LibJXR/image/decode/postprocess.c ./Source/LibJXR/image/decode/segdec.c
-        ./Source/LibJXR/image/decode/strInvTransform.c ./Source/LibJXR/image/
-        ./Source/FreeImage/PluginJXR.cpp
-        ./Source/LibJXR/common/include/wmspecstring.h
-        ./Source/LibJXR/common/include/wmspecstrings_adt.h
-        ./Source/LibJXR/common/include/wmspecstrings_strict.h
-        ./Source/LibJXR/common/include/wmspecstrings_undef.h
-        ./Source/LibJXR/image/decode/decode.h ./Source/LibJXR/image/encode/encode.h
-        ./Source/LibJXR/image/sys/ansi.h ./Source/LibJXR/image/sys/common.h
-        ./Source/LibJXR/image/sys/perfTimer.h ./Source/LibJXR/image/sys/strcodec.h
-        ./Source/LibJXR/image/sys/strTransform.h ./Source/LibJXR/image/sys/windowsmediaphoto.h
-        ./Source/LibJXR/image/sys/xplatform_image.h ./Source/LibJXR/image/x86/x86.h
-        ./Source/LibJXR/jxrgluelib/JXRGlue.h ./Source/LibJXR/jxrgluelib/JXRMeta.h
+        Source/LibJXR/image/decode/decode.c Source/LibJXR/image/decode/JXRTranscode.c
+        Source/LibJXR/image/decode/postprocess.c Source/LibJXR/image/decode/segdec.c
+        Source/LibJXR/image/decode/strInvTransform.c Source/LibJXR/image/
+        Source/FreeImage/PluginJXR.cpp
+        Source/LibJXR/common/include/wmspecstring.h
+        Source/LibJXR/common/include/wmspecstrings_adt.h
+        Source/LibJXR/common/include/wmspecstrings_strict.h
+        Source/LibJXR/common/include/wmspecstrings_undef.h
+        Source/LibJXR/image/decode/decode.h Source/LibJXR/image/encode/encode.h
+        Source/LibJXR/image/sys/ansi.h Source/LibJXR/image/sys/common.h
+        Source/LibJXR/image/sys/perfTimer.h Source/LibJXR/image/sys/strcodec.h
+        Source/LibJXR/image/sys/strTransform.h Source/LibJXR/image/sys/windowsmediaphoto.h
+        Source/LibJXR/image/sys/xplatform_image.h Source/LibJXR/image/x86/x86.h
+        Source/LibJXR/jxrgluelib/JXRGlue.h Source/LibJXR/jxrgluelib/JXRMeta.h
     )
     list(APPEND FreeImage_SOURCES ${FreeImage_JXR_SRCS})
     include_directories(Source/LibJXR)
@@ -320,28 +320,28 @@ if(BUILD_WEBP)
         Source/LibWebP/src/utils/quant_levels_dec_utils.c Source/LibWebP/src/utils/quant_levels_utils.c
         Source/LibWebP/src/utils/random_utils.c Source/LibWebP/src/utils/rescaler_utils.c
         Source/LibWebP/src/utils/thread_utils.c Source/LibWebP/src/utils/utils.c
-        ./Source/LibWebP/src/dec/alphai_dec.h ./Source/LibWebP/src/dec/common_dec.h
-        ./Source/LibWebP/src/dec/vp8i_dec.h ./Source/LibWebP/src/dec/vp8li_dec.h
-        ./Source/LibWebP/src/dec/vp8_dec.h ./Source/LibWebP/src/dec/webpi_dec.h
-        ./Source/LibWebP/src/dsp/common_sse2.h ./Source/LibWebP/src/dsp/common_sse41.h
-        ./Source/LibWebP/src/dsp/dsp.h ./Source/LibWebP/src/dsp/lossless.h
-        ./Source/LibWebP/src/dsp/lossless_common.h ./Source/LibWebP/src/dsp/mips_macro.h
-        ./Source/LibWebP/src/dsp/msa_macro.h ./Source/LibWebP/src/dsp/neon.h
-        ./Source/LibWebP/src/dsp/quant.h ./Source/LibWebP/src/dsp/yuv.h
-        ./Source/LibWebP/src/enc/backward_references_enc.h ./Source/LibWebP/src/enc/cost_enc.h
-        ./Source/LibWebP/src/enc/histogram_enc.h ./Source/LibWebP/src/enc/vp8i_enc.h
-        ./Source/LibWebP/src/enc/vp8li_enc.h ./Source/LibWebP/src/mux/animi.h
-        ./Source/LibWebP/src/mux/muxi.h ./Source/LibWebP/src/utils/bit_reader_inl_utils.h
-        ./Source/LibWebP/src/utils/bit_reader_utils.h ./Source/LibWebP/src/utils/bit_writer_utils.h
-        ./Source/LibWebP/src/utils/color_cache_utils.h ./Source/LibWebP/src/utils/endian_inl_utils.h
-        ./Source/LibWebP/src/utils/filters_utils.h ./Source/LibWebP/src/utils/huffman_encode_utils.h
-        ./Source/LibWebP/src/utils/huffman_utils.h ./Source/LibWebP/src/utils/quant_levels_dec_utils.h
-        ./Source/LibWebP/src/utils/quant_levels_utils.h ./Source/LibWebP/src/utils/random_utils.h
-        ./Source/LibWebP/src/utils/rescaler_utils.h ./Source/LibWebP/src/utils/thread_utils.h
-        ./Source/LibWebP/src/utils/utils.h ./Source/LibWebP/src/webp/decode.h
-        ./Source/LibWebP/src/webp/demux.h ./Source/LibWebP/src/webp/encode.h
-        ./Source/LibWebP/src/webp/format_constants.h ./Source/LibWebP/src/webp/mux.h
-        ./Source/LibWebP/src/webp/mux_types.h ./Source/LibWebP/src/webp/types.h
+        Source/LibWebP/src/dec/alphai_dec.h Source/LibWebP/src/dec/common_dec.h
+        Source/LibWebP/src/dec/vp8i_dec.h Source/LibWebP/src/dec/vp8li_dec.h
+        Source/LibWebP/src/dec/vp8_dec.h Source/LibWebP/src/dec/webpi_dec.h
+        Source/LibWebP/src/dsp/common_sse2.h Source/LibWebP/src/dsp/common_sse41.h
+        Source/LibWebP/src/dsp/dsp.h Source/LibWebP/src/dsp/lossless.h
+        Source/LibWebP/src/dsp/lossless_common.h Source/LibWebP/src/dsp/mips_macro.h
+        Source/LibWebP/src/dsp/msa_macro.h Source/LibWebP/src/dsp/neon.h
+        Source/LibWebP/src/dsp/quant.h Source/LibWebP/src/dsp/yuv.h
+        Source/LibWebP/src/enc/backward_references_enc.h Source/LibWebP/src/enc/cost_enc.h
+        Source/LibWebP/src/enc/histogram_enc.h Source/LibWebP/src/enc/vp8i_enc.h
+        Source/LibWebP/src/enc/vp8li_enc.h Source/LibWebP/src/mux/animi.h
+        Source/LibWebP/src/mux/muxi.h Source/LibWebP/src/utils/bit_reader_inl_utils.h
+        Source/LibWebP/src/utils/bit_reader_utils.h Source/LibWebP/src/utils/bit_writer_utils.h
+        Source/LibWebP/src/utils/color_cache_utils.h Source/LibWebP/src/utils/endian_inl_utils.h
+        Source/LibWebP/src/utils/filters_utils.h Source/LibWebP/src/utils/huffman_encode_utils.h
+        Source/LibWebP/src/utils/huffman_utils.h Source/LibWebP/src/utils/quant_levels_dec_utils.h
+        Source/LibWebP/src/utils/quant_levels_utils.h Source/LibWebP/src/utils/random_utils.h
+        Source/LibWebP/src/utils/rescaler_utils.h Source/LibWebP/src/utils/thread_utils.h
+        Source/LibWebP/src/utils/utils.h Source/LibWebP/src/webp/decode.h
+        Source/LibWebP/src/webp/demux.h Source/LibWebP/src/webp/encode.h
+        Source/LibWebP/src/webp/format_constants.h Source/LibWebP/src/webp/mux.h
+        Source/LibWebP/src/webp/mux_types.h Source/LibWebP/src/webp/types.h
     )
     list(APPEND FreeImage_SOURCES ${FreeImage_WEBP_SRCS})
     include_directories(Source/LibWebP)
@@ -388,14 +388,14 @@ if(BUILD_LIBRAWLITE)
         Source/LibRawLite/src/utils/utils_dcraw.cpp Source/LibRawLite/src/utils/utils_libraw.cpp
         Source/LibRawLite/src/write/file_write.cpp Source/LibRawLite/src/x3f/x3f_parse_process.cpp
         Source/LibRawLite/src/x3f/x3f_utils_patched.cpp
-        ./Source/LibRawLite/internal/dcraw_defs.h ./Source/LibRawLite/internal/dcraw_fileio_defs.h
-        ./Source/LibRawLite/internal/defines.h ./Source/LibRawLite/internal/dmp_include.h
-        ./Source/LibRawLite/internal/libraw_cameraids.h ./Source/LibRawLite/internal/libraw_cxx_defs.h
-        ./Source/LibRawLite/internal/libraw_internal_funcs.h ./Source/LibRawLite/internal/var_defines.h
-        ./Source/LibRawLite/internal/x3f_tools.h ./Source/LibRawLite/libraw/libraw.h
-        ./Source/LibRawLite/libraw/libraw_alloc.h ./Source/LibRawLite/libraw/libraw_const.h
-        ./Source/LibRawLite/libraw/libraw_datastream.h ./Source/LibRawLite/libraw/libraw_internal.h
-        ./Source/LibRawLite/libraw/libraw_types.h ./Source/LibRawLite/libraw/libraw_version.h
+        Source/LibRawLite/internal/dcraw_defs.h Source/LibRawLite/internal/dcraw_fileio_defs.h
+        Source/LibRawLite/internal/defines.h Source/LibRawLite/internal/dmp_include.h
+        Source/LibRawLite/internal/libraw_cameraids.h Source/LibRawLite/internal/libraw_cxx_defs.h
+        Source/LibRawLite/internal/libraw_internal_funcs.h Source/LibRawLite/internal/var_defines.h
+        Source/LibRawLite/internal/x3f_tools.h Source/LibRawLite/libraw/libraw.h
+        Source/LibRawLite/libraw/libraw_alloc.h Source/LibRawLite/libraw/libraw_const.h
+        Source/LibRawLite/libraw/libraw_datastream.h Source/LibRawLite/libraw/libraw_internal.h
+        Source/LibRawLite/libraw/libraw_types.h Source/LibRawLite/libraw/libraw_version.h
     )
     list(APPEND FreeImage_SOURCES ${FreeImage_LIBRAWLITE_SRCS})
     include_directories(Source/LibRawLite)
@@ -408,8 +408,8 @@ endif()
 
 set(FreeImage_OPENEXR_HALF_SRCS
     Source/OpenEXR/Half/half.cpp Source/OpenEXR/Half/eLut.cpp Source/OpenEXR/Half/toFloat.cpp
-    ./Source/OpenEXR/Half/eLut.h ./Source/OpenEXR/Half/half.h ./Source/OpenEXR/Half/halfExport.h
-    ./Source/OpenEXR/Half/halfFunction.h ./Source/OpenEXR/Half/halfLimits.h ./Source/OpenEXR/Half/toFloat.h
+    Source/OpenEXR/Half/eLut.h Source/OpenEXR/Half/half.h Source/OpenEXR/Half/halfExport.h
+    Source/OpenEXR/Half/halfFunction.h Source/OpenEXR/Half/halfLimits.h Source/OpenEXR/Half/toFloat.h
 )
 list(APPEND FreeImage_SOURCES ${FreeImage_OPENEXR_HALF_SRCS})
 include_directories(Source/OpenEXR/Half)
@@ -469,90 +469,90 @@ if(BUILD_OPENEXR)
         Source/OpenEXR/IlmThread/IlmThread.cpp Source/OpenEXR/IlmThread/IlmThreadMutex.cpp
         Source/OpenEXR/IlmThread/IlmThreadPool.cpp Source/OpenEXR/IlmThread/IlmThreadSemaphore.cpp
         Source/OpenEXR/IexMath/IexMathFloatExc.cpp
-        ./Source/OpenEXR/Iex/Iex.h ./Source/OpenEXR/Iex/IexBaseExc.h
-        ./Source/OpenEXR/Iex/IexErrnoExc.h ./Source/OpenEXR/Iex/IexExport.h
-        ./Source/OpenEXR/Iex/IexForward.h ./Source/OpenEXR/Iex/IexMacros.h
-        ./Source/OpenEXR/Iex/IexMathExc.h ./Source/OpenEXR/Iex/IexNamespace.h
-        ./Source/OpenEXR/Iex/IexThrowErrnoExc.h ./Source/OpenEXR/IexMath/IexMathFloatExc.h
-        ./Source/OpenEXR/IexMath/IexMathFpu.h ./Source/OpenEXR/IexMath/IexMathIeeeExc.h
-        ./Source/OpenEXR/IlmBaseConfig.h ./Source/OpenEXR/IlmImf/b44ExpLogTable.h
-        ./Source/OpenEXR/IlmImf/dwaLookups.h ./Source/OpenEXR/IlmImf/ImfAcesFile.h
-        ./Source/OpenEXR/IlmImf/ImfArray.h ./Source/OpenEXR/IlmImf/ImfAttribute.h
-        ./Source/OpenEXR/IlmImf/ImfAutoArray.h ./Source/OpenEXR/IlmImf/ImfB44Compressor.h
-        ./Source/OpenEXR/IlmImf/ImfBoxAttribute.h ./Source/OpenEXR/IlmImf/ImfChannelList.h
-        ./Source/OpenEXR/IlmImf/ImfChannelListAttribute.h
-        ./Source/OpenEXR/IlmImf/ImfCheckedArithmetic.h ./Source/OpenEXR/IlmImf/ImfChromaticities.h
-        ./Source/OpenEXR/IlmImf/ImfChromaticitiesAttribute.h
-        ./Source/OpenEXR/IlmImf/ImfCompositeDeepScanLine.h ./Source/OpenEXR/IlmImf/ImfCompression.h
-        ./Source/OpenEXR/IlmImf/ImfCompressionAttribute.h ./Source/OpenEXR/IlmImf/ImfCompressor.h
-        ./Source/OpenEXR/IlmImf/ImfConvert.h ./Source/OpenEXR/IlmImf/ImfCRgbaFile.h
-        ./Source/OpenEXR/IlmImf/ImfDeepCompositing.h ./Source/OpenEXR/IlmImf/ImfDeepFrameBuffer.h
-        ./Source/OpenEXR/IlmImf/ImfDeepImageState.h ./Source/OpenEXR/IlmImf/ImfDeepImageStateAttribute.h
-        ./Source/OpenEXR/IlmImf/ImfDeepScanLineInputFile.h ./Source/OpenEXR/IlmImf/ImfDeepScanLineInputPart.h
-        ./Source/OpenEXR/IlmImf/ImfDeepScanLineOutputFile.h ./Source/OpenEXR/IlmImf/ImfDeepScanLineOutputPart.h
-        ./Source/OpenEXR/IlmImf/ImfDeepTiledInputFile.h ./Source/OpenEXR/IlmImf/ImfDeepTiledInputPart.h
-        ./Source/OpenEXR/IlmImf/ImfDeepTiledOutputFile.h ./Source/OpenEXR/IlmImf/ImfDeepTiledOutputPart.h
-        ./Source/OpenEXR/IlmImf/ImfDoubleAttribute.h ./Source/OpenEXR/IlmImf/ImfDwaCompressor.h
-        ./Source/OpenEXR/IlmImf/ImfDwaCompressorSimd.h ./Source/OpenEXR/IlmImf/ImfEnvmap.h
-        ./Source/OpenEXR/IlmImf/ImfEnvmapAttribute.h ./Source/OpenEXR/IlmImf/ImfExport.h
-        ./Source/OpenEXR/IlmImf/ImfFastHuf.h ./Source/OpenEXR/IlmImf/ImfFloatAttribute.h
-        ./Source/OpenEXR/IlmImf/ImfFloatVectorAttribute.h ./Source/OpenEXR/IlmImf/ImfForward.h
-        ./Source/OpenEXR/IlmImf/ImfFrameBuffer.h ./Source/OpenEXR/IlmImf/ImfFramesPerSecond.h
-        ./Source/OpenEXR/IlmImf/ImfGenericInputFile.h ./Source/OpenEXR/IlmImf/ImfGenericOutputFile.h
-        ./Source/OpenEXR/IlmImf/ImfHeader.h ./Source/OpenEXR/IlmImf/ImfHuf.h
-        ./Source/OpenEXR/IlmImf/ImfInputFile.h ./Source/OpenEXR/IlmImf/ImfInputPart.h
-        ./Source/OpenEXR/IlmImf/ImfInputPartData.h ./Source/OpenEXR/IlmImf/ImfInputStreamMutex.h
-        ./Source/OpenEXR/IlmImf/ImfInt64.h ./Source/OpenEXR/IlmImf/ImfIntAttribute.h
-        ./Source/OpenEXR/IlmImf/ImfIO.h ./Source/OpenEXR/IlmImf/ImfKeyCode.h
-        ./Source/OpenEXR/IlmImf/ImfKeyCodeAttribute.h ./Source/OpenEXR/IlmImf/ImfLineOrder.h
-        ./Source/OpenEXR/IlmImf/ImfLineOrderAttribute.h ./Source/OpenEXR/IlmImf/ImfLut.h
-        ./Source/OpenEXR/IlmImf/ImfMatrixAttribute.h ./Source/OpenEXR/IlmImf/ImfMisc.h
-        ./Source/OpenEXR/IlmImf/ImfMultiPartInputFile.h ./Source/OpenEXR/IlmImf/ImfMultiPartOutputFile.h
-        ./Source/OpenEXR/IlmImf/ImfMultiView.h ./Source/OpenEXR/IlmImf/ImfName.h
-        ./Source/OpenEXR/IlmImf/ImfNamespace.h ./Source/OpenEXR/IlmImf/ImfOpaqueAttribute.h
-        ./Source/OpenEXR/IlmImf/ImfOptimizedPixelReading.h ./Source/OpenEXR/IlmImf/ImfOutputFile.h
-        ./Source/OpenEXR/IlmImf/ImfOutputPart.h ./Source/OpenEXR/IlmImf/ImfOutputPartData.h
-        ./Source/OpenEXR/IlmImf/ImfOutputStreamMutex.h ./Source/OpenEXR/IlmImf/ImfPartHelper.h
-        ./Source/OpenEXR/IlmImf/ImfPartType.h ./Source/OpenEXR/IlmImf/ImfPixelType.h
-        ./Source/OpenEXR/IlmImf/ImfPizCompressor.h ./Source/OpenEXR/IlmImf/ImfPreviewImage.h
-        ./Source/OpenEXR/IlmImf/ImfPreviewImageAttribute.h ./Source/OpenEXR/IlmImf/ImfPxr24Compressor.h
-        ./Source/OpenEXR/IlmImf/ImfRational.h ./Source/OpenEXR/IlmImf/ImfRationalAttribute.h
-        ./Source/OpenEXR/IlmImf/ImfRgba.h ./Source/OpenEXR/IlmImf/ImfRgbaFile.h
-        ./Source/OpenEXR/IlmImf/ImfRgbaYca.h ./Source/OpenEXR/IlmImf/ImfRle.h
-        ./Source/OpenEXR/IlmImf/ImfRleCompressor.h ./Source/OpenEXR/IlmImf/ImfScanLineInputFile.h
-        ./Source/OpenEXR/IlmImf/ImfSimd.h ./Source/OpenEXR/IlmImf/ImfStandardAttributes.h
-        ./Source/OpenEXR/IlmImf/ImfStdIO.h ./Source/OpenEXR/IlmImf/ImfStringAttribute.h
-        ./Source/OpenEXR/IlmImf/ImfStringVectorAttribute.h ./Source/OpenEXR/IlmImf/ImfSystemSpecific.h
-        ./Source/OpenEXR/IlmImf/ImfTestFile.h ./Source/OpenEXR/IlmImf/ImfThreading.h
-        ./Source/OpenEXR/IlmImf/ImfTileDescription.h ./Source/OpenEXR/IlmImf/ImfTileDescriptionAttribute.h
-        ./Source/OpenEXR/IlmImf/ImfTiledInputFile.h ./Source/OpenEXR/IlmImf/ImfTiledInputPart.h
-        ./Source/OpenEXR/IlmImf/ImfTiledMisc.h ./Source/OpenEXR/IlmImf/ImfTiledOutputFile.h
-        ./Source/OpenEXR/IlmImf/ImfTiledOutputPart.h ./Source/OpenEXR/IlmImf/ImfTiledRgbaFile.h
-        ./Source/OpenEXR/IlmImf/ImfTileOffsets.h ./Source/OpenEXR/IlmImf/ImfTimeCode.h
-        ./Source/OpenEXR/IlmImf/ImfTimeCodeAttribute.h ./Source/OpenEXR/IlmImf/ImfVecAttribute.h
-        ./Source/OpenEXR/IlmImf/ImfVersion.h ./Source/OpenEXR/IlmImf/ImfWav.h
-        ./Source/OpenEXR/IlmImf/ImfXdr.h ./Source/OpenEXR/IlmImf/ImfZip.h
-        ./Source/OpenEXR/IlmImf/ImfZipCompressor.h ./Source/OpenEXR/IlmThread/IlmThread.h
-        ./Source/OpenEXR/IlmThread/IlmThreadExport.h ./Source/OpenEXR/IlmThread/IlmThreadForward.h
-        ./Source/OpenEXR/IlmThread/IlmThreadMutex.h ./Source/OpenEXR/IlmThread/IlmThreadNamespace.h
-        ./Source/OpenEXR/IlmThread/IlmThreadPool.h ./Source/OpenEXR/IlmThread/IlmThreadSemaphore.h
-        ./Source/OpenEXR/Imath/ImathBox.h ./Source/OpenEXR/Imath/ImathBoxAlgo.h
-        ./Source/OpenEXR/Imath/ImathColor.h ./Source/OpenEXR/Imath/ImathColorAlgo.h
-        ./Source/OpenEXR/Imath/ImathEuler.h ./Source/OpenEXR/Imath/ImathExc.h
-        ./Source/OpenEXR/Imath/ImathExport.h ./Source/OpenEXR/Imath/ImathForward.h
-        ./Source/OpenEXR/Imath/ImathFrame.h ./Source/OpenEXR/Imath/ImathFrustum.h
-        ./Source/OpenEXR/Imath/ImathFrustumTest.h ./Source/OpenEXR/Imath/ImathFun.h
-        ./Source/OpenEXR/Imath/ImathGL.h ./Source/OpenEXR/Imath/ImathGLU.h
-        ./Source/OpenEXR/Imath/ImathHalfLimits.h ./Source/OpenEXR/Imath/ImathInt64.h
-        ./Source/OpenEXR/Imath/ImathInterval.h ./Source/OpenEXR/Imath/ImathLimits.h
-        ./Source/OpenEXR/Imath/ImathLine.h ./Source/OpenEXR/Imath/ImathLineAlgo.h
-        ./Source/OpenEXR/Imath/ImathMath.h ./Source/OpenEXR/Imath/ImathMatrix.h
-        ./Source/OpenEXR/Imath/ImathMatrixAlgo.h ./Source/OpenEXR/Imath/ImathNamespace.h
-        ./Source/OpenEXR/Imath/ImathPlane.h ./Source/OpenEXR/Imath/ImathPlatform.h
-        ./Source/OpenEXR/Imath/ImathQuat.h ./Source/OpenEXR/Imath/ImathRandom.h
-        ./Source/OpenEXR/Imath/ImathRoots.h ./Source/OpenEXR/Imath/ImathShear.h
-        ./Source/OpenEXR/Imath/ImathSphere.h ./Source/OpenEXR/Imath/ImathVec.h
-        ./Source/OpenEXR/Imath/ImathVecAlgo.h ./Source/OpenEXR/OpenEXRConfig.h
+        Source/OpenEXR/Iex/Iex.h Source/OpenEXR/Iex/IexBaseExc.h
+        Source/OpenEXR/Iex/IexErrnoExc.h Source/OpenEXR/Iex/IexExport.h
+        Source/OpenEXR/Iex/IexForward.h Source/OpenEXR/Iex/IexMacros.h
+        Source/OpenEXR/Iex/IexMathExc.h Source/OpenEXR/Iex/IexNamespace.h
+        Source/OpenEXR/Iex/IexThrowErrnoExc.h Source/OpenEXR/IexMath/IexMathFloatExc.h
+        Source/OpenEXR/IexMath/IexMathFpu.h Source/OpenEXR/IexMath/IexMathIeeeExc.h
+        Source/OpenEXR/IlmBaseConfig.h Source/OpenEXR/IlmImf/b44ExpLogTable.h
+        Source/OpenEXR/IlmImf/dwaLookups.h Source/OpenEXR/IlmImf/ImfAcesFile.h
+        Source/OpenEXR/IlmImf/ImfArray.h Source/OpenEXR/IlmImf/ImfAttribute.h
+        Source/OpenEXR/IlmImf/ImfAutoArray.h Source/OpenEXR/IlmImf/ImfB44Compressor.h
+        Source/OpenEXR/IlmImf/ImfBoxAttribute.h Source/OpenEXR/IlmImf/ImfChannelList.h
+        Source/OpenEXR/IlmImf/ImfChannelListAttribute.h
+        Source/OpenEXR/IlmImf/ImfCheckedArithmetic.h Source/OpenEXR/IlmImf/ImfChromaticities.h
+        Source/OpenEXR/IlmImf/ImfChromaticitiesAttribute.h
+        Source/OpenEXR/IlmImf/ImfCompositeDeepScanLine.h Source/OpenEXR/IlmImf/ImfCompression.h
+        Source/OpenEXR/IlmImf/ImfCompressionAttribute.h Source/OpenEXR/IlmImf/ImfCompressor.h
+        Source/OpenEXR/IlmImf/ImfConvert.h Source/OpenEXR/IlmImf/ImfCRgbaFile.h
+        Source/OpenEXR/IlmImf/ImfDeepCompositing.h Source/OpenEXR/IlmImf/ImfDeepFrameBuffer.h
+        Source/OpenEXR/IlmImf/ImfDeepImageState.h Source/OpenEXR/IlmImf/ImfDeepImageStateAttribute.h
+        Source/OpenEXR/IlmImf/ImfDeepScanLineInputFile.h Source/OpenEXR/IlmImf/ImfDeepScanLineInputPart.h
+        Source/OpenEXR/IlmImf/ImfDeepScanLineOutputFile.h Source/OpenEXR/IlmImf/ImfDeepScanLineOutputPart.h
+        Source/OpenEXR/IlmImf/ImfDeepTiledInputFile.h Source/OpenEXR/IlmImf/ImfDeepTiledInputPart.h
+        Source/OpenEXR/IlmImf/ImfDeepTiledOutputFile.h Source/OpenEXR/IlmImf/ImfDeepTiledOutputPart.h
+        Source/OpenEXR/IlmImf/ImfDoubleAttribute.h Source/OpenEXR/IlmImf/ImfDwaCompressor.h
+        Source/OpenEXR/IlmImf/ImfDwaCompressorSimd.h Source/OpenEXR/IlmImf/ImfEnvmap.h
+        Source/OpenEXR/IlmImf/ImfEnvmapAttribute.h Source/OpenEXR/IlmImf/ImfExport.h
+        Source/OpenEXR/IlmImf/ImfFastHuf.h Source/OpenEXR/IlmImf/ImfFloatAttribute.h
+        Source/OpenEXR/IlmImf/ImfFloatVectorAttribute.h Source/OpenEXR/IlmImf/ImfForward.h
+        Source/OpenEXR/IlmImf/ImfFrameBuffer.h Source/OpenEXR/IlmImf/ImfFramesPerSecond.h
+        Source/OpenEXR/IlmImf/ImfGenericInputFile.h Source/OpenEXR/IlmImf/ImfGenericOutputFile.h
+        Source/OpenEXR/IlmImf/ImfHeader.h Source/OpenEXR/IlmImf/ImfHuf.h
+        Source/OpenEXR/IlmImf/ImfInputFile.h Source/OpenEXR/IlmImf/ImfInputPart.h
+        Source/OpenEXR/IlmImf/ImfInputPartData.h Source/OpenEXR/IlmImf/ImfInputStreamMutex.h
+        Source/OpenEXR/IlmImf/ImfInt64.h Source/OpenEXR/IlmImf/ImfIntAttribute.h
+        Source/OpenEXR/IlmImf/ImfIO.h Source/OpenEXR/IlmImf/ImfKeyCode.h
+        Source/OpenEXR/IlmImf/ImfKeyCodeAttribute.h Source/OpenEXR/IlmImf/ImfLineOrder.h
+        Source/OpenEXR/IlmImf/ImfLineOrderAttribute.h Source/OpenEXR/IlmImf/ImfLut.h
+        Source/OpenEXR/IlmImf/ImfMatrixAttribute.h Source/OpenEXR/IlmImf/ImfMisc.h
+        Source/OpenEXR/IlmImf/ImfMultiPartInputFile.h Source/OpenEXR/IlmImf/ImfMultiPartOutputFile.h
+        Source/OpenEXR/IlmImf/ImfMultiView.h Source/OpenEXR/IlmImf/ImfName.h
+        Source/OpenEXR/IlmImf/ImfNamespace.h Source/OpenEXR/IlmImf/ImfOpaqueAttribute.h
+        Source/OpenEXR/IlmImf/ImfOptimizedPixelReading.h Source/OpenEXR/IlmImf/ImfOutputFile.h
+        Source/OpenEXR/IlmImf/ImfOutputPart.h Source/OpenEXR/IlmImf/ImfOutputPartData.h
+        Source/OpenEXR/IlmImf/ImfOutputStreamMutex.h Source/OpenEXR/IlmImf/ImfPartHelper.h
+        Source/OpenEXR/IlmImf/ImfPartType.h Source/OpenEXR/IlmImf/ImfPixelType.h
+        Source/OpenEXR/IlmImf/ImfPizCompressor.h Source/OpenEXR/IlmImf/ImfPreviewImage.h
+        Source/OpenEXR/IlmImf/ImfPreviewImageAttribute.h Source/OpenEXR/IlmImf/ImfPxr24Compressor.h
+        Source/OpenEXR/IlmImf/ImfRational.h Source/OpenEXR/IlmImf/ImfRationalAttribute.h
+        Source/OpenEXR/IlmImf/ImfRgba.h Source/OpenEXR/IlmImf/ImfRgbaFile.h
+        Source/OpenEXR/IlmImf/ImfRgbaYca.h Source/OpenEXR/IlmImf/ImfRle.h
+        Source/OpenEXR/IlmImf/ImfRleCompressor.h Source/OpenEXR/IlmImf/ImfScanLineInputFile.h
+        Source/OpenEXR/IlmImf/ImfSimd.h Source/OpenEXR/IlmImf/ImfStandardAttributes.h
+        Source/OpenEXR/IlmImf/ImfStdIO.h Source/OpenEXR/IlmImf/ImfStringAttribute.h
+        Source/OpenEXR/IlmImf/ImfStringVectorAttribute.h Source/OpenEXR/IlmImf/ImfSystemSpecific.h
+        Source/OpenEXR/IlmImf/ImfTestFile.h Source/OpenEXR/IlmImf/ImfThreading.h
+        Source/OpenEXR/IlmImf/ImfTileDescription.h Source/OpenEXR/IlmImf/ImfTileDescriptionAttribute.h
+        Source/OpenEXR/IlmImf/ImfTiledInputFile.h Source/OpenEXR/IlmImf/ImfTiledInputPart.h
+        Source/OpenEXR/IlmImf/ImfTiledMisc.h Source/OpenEXR/IlmImf/ImfTiledOutputFile.h
+        Source/OpenEXR/IlmImf/ImfTiledOutputPart.h Source/OpenEXR/IlmImf/ImfTiledRgbaFile.h
+        Source/OpenEXR/IlmImf/ImfTileOffsets.h Source/OpenEXR/IlmImf/ImfTimeCode.h
+        Source/OpenEXR/IlmImf/ImfTimeCodeAttribute.h Source/OpenEXR/IlmImf/ImfVecAttribute.h
+        Source/OpenEXR/IlmImf/ImfVersion.h Source/OpenEXR/IlmImf/ImfWav.h
+        Source/OpenEXR/IlmImf/ImfXdr.h Source/OpenEXR/IlmImf/ImfZip.h
+        Source/OpenEXR/IlmImf/ImfZipCompressor.h Source/OpenEXR/IlmThread/IlmThread.h
+        Source/OpenEXR/IlmThread/IlmThreadExport.h Source/OpenEXR/IlmThread/IlmThreadForward.h
+        Source/OpenEXR/IlmThread/IlmThreadMutex.h Source/OpenEXR/IlmThread/IlmThreadNamespace.h
+        Source/OpenEXR/IlmThread/IlmThreadPool.h Source/OpenEXR/IlmThread/IlmThreadSemaphore.h
+        Source/OpenEXR/Imath/ImathBox.h Source/OpenEXR/Imath/ImathBoxAlgo.h
+        Source/OpenEXR/Imath/ImathColor.h Source/OpenEXR/Imath/ImathColorAlgo.h
+        Source/OpenEXR/Imath/ImathEuler.h Source/OpenEXR/Imath/ImathExc.h
+        Source/OpenEXR/Imath/ImathExport.h Source/OpenEXR/Imath/ImathForward.h
+        Source/OpenEXR/Imath/ImathFrame.h Source/OpenEXR/Imath/ImathFrustum.h
+        Source/OpenEXR/Imath/ImathFrustumTest.h Source/OpenEXR/Imath/ImathFun.h
+        Source/OpenEXR/Imath/ImathGL.h Source/OpenEXR/Imath/ImathGLU.h
+        Source/OpenEXR/Imath/ImathHalfLimits.h Source/OpenEXR/Imath/ImathInt64.h
+        Source/OpenEXR/Imath/ImathInterval.h Source/OpenEXR/Imath/ImathLimits.h
+        Source/OpenEXR/Imath/ImathLine.h Source/OpenEXR/Imath/ImathLineAlgo.h
+        Source/OpenEXR/Imath/ImathMath.h Source/OpenEXR/Imath/ImathMatrix.h
+        Source/OpenEXR/Imath/ImathMatrixAlgo.h Source/OpenEXR/Imath/ImathNamespace.h
+        Source/OpenEXR/Imath/ImathPlane.h Source/OpenEXR/Imath/ImathPlatform.h
+        Source/OpenEXR/Imath/ImathQuat.h Source/OpenEXR/Imath/ImathRandom.h
+        Source/OpenEXR/Imath/ImathRoots.h Source/OpenEXR/Imath/ImathShear.h
+        Source/OpenEXR/Imath/ImathSphere.h Source/OpenEXR/Imath/ImathVec.h
+        Source/OpenEXR/Imath/ImathVecAlgo.h Source/OpenEXR/OpenEXRConfig.h
     )
     list(APPEND FreeImage_SOURCES ${FreeImage_OPENEXR_SRCS})
     include_directories(Source/OpenEXR)
@@ -582,6 +582,17 @@ if (DEFINED LIBTIFF_ROOT)
     target_include_directories(LibTIFF INTERFACE "${LIBTIFF_ROOT}/include")
     include_directories(${LIBTIFF_ROOT}/include)
 endif()
+
+
+if (DEFINED LIBJPEG_ROOT)
+    add_library(LibJPEG STATIC IMPORTED)
+    set_target_properties(LibJPEG PROPERTIES
+        IMPORTED_LOCATION "${LIBJPEG_ROOT}/lib/*"
+    )
+    target_include_directories(LibJPEG INTERFACE "${LIBJPEG_ROOT}/include")
+    include_directories(${LIBJPEG_ROOT}/include)
+endif()
+
 
 if(BUILD_SHARED_LIBS)
     add_library(${PROJECT_NAME} SHARED
