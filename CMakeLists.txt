@@ -580,6 +580,8 @@ if (DEFINED LIBTIFF_ROOT)
     )
     target_include_directories(LibTIFF INTERFACE "${LIBTIFF_ROOT}/include")
     include_directories(${LIBTIFF_ROOT}/include)
+    add_definitions(-DINCLUDE_LIB_TIFF4)
+
 endif()
 
 
