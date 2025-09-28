@@ -569,13 +569,12 @@ endif()
 include_directories(Source)
 include_directories(Source/Metadata)
 include_directories(Source/FreeImageToolkit)
-include_directories(Source/LibJPEG)
 
-include_directories(Source/LibTIFF4)
-include_directories(Source/LibOpenJPEG)
+# include_directories(Source/LibTIFF4)
+# include_directories(Source/LibOpenJPEG)
 
 if (DEFINED LIBTIFF_ROOT)
-    add_library(LibTIFF STATIC IMPORTED)
+    add_library(LibTIFF STATIC)
     set_target_properties(LibTIFF PROPERTIES
         IMPORTED_LOCATION "${LIBTIFF_ROOT}/lib/*"
     )
@@ -585,7 +584,7 @@ endif()
 
 
 if (DEFINED LIBJPEG_ROOT)
-    add_library(LibJPEG STATIC IMPORTED)
+    add_library(LibJPEG STATIC)
     set_target_properties(LibJPEG PROPERTIES
         IMPORTED_LOCATION "${LIBJPEG_ROOT}/lib/*"
     )
