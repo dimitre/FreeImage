@@ -37,7 +37,14 @@
 
 #include "FreeImage.h"
 #include "Utilities.h"
-#include "../LibTIFF4/tiffiop.h"
+// #include "../LibTIFF4/tiffiop.h"
+#ifdef INCLUDE_LIB_TIFF4
+    #include "../LibTIFF4/tiffiop.h"
+#else
+    #include <tiff.h>
+    #include <tiffio.h>
+    // Don't include tiffiop.h - it's internal to libtiff
+#endif
 #include "../Metadata/FreeImageTag.h"
 #include "../OpenEXR/Half/half.h"
 
@@ -254,7 +261,7 @@ TIFFErrorHandler _TIFFwarningHandler = msdosWarningHandler;
 
 static void
 msdosErrorHandler(const char* module, const char* fmt, va_list ap) {
-	
+
 	// use this for diagnostic only (do not use otherwise, even in DEBUG mode)
 	/*
 	if (module != NULL) {
