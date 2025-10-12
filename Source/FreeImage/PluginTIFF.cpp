@@ -37,16 +37,10 @@
 
 #include "FreeImage.h"
 #include "Utilities.h"
-// #include "../LibTIFF4/tiffiop.h"
 #ifdef INCLUDE_LIB_TIFF4
-// Only define these when using bundled LibTIFF4
-void* _TIFFmalloc(tmsize_t s) { return malloc(s); }
-void _TIFFfree(void* p) { free(p); }
-void* _TIFFcalloc(tmsize_t nmemb, tmsize_t siz) { return calloc(nmemb, siz); }
-void* _TIFFrealloc(void* p, tmsize_t s) { return realloc(p, s); }
-void _TIFFmemset(void* p, int v, tmsize_t c) { memset(p, v, (size_t) c); }
-void _TIFFmemcpy(void* d, const void* s, tmsize_t c) { memcpy(d, s, (size_t) c); }
-int _TIFFmemcmp(const void* p1, const void* p2, tmsize_t c) { return memcmp(p1, p2, (size_t) c); }
+#include "../LibTIFF4/tiffiop.h"
+#else
+#include <tiffiop.h>
 #endif
 
 #include "../Metadata/FreeImageTag.h"
