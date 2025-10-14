@@ -657,7 +657,10 @@ if(LIBTIFF_SOURCE_DIR)
     # add_definitions(-DINCLUDE_LIB_TIFF4)
 
     target_include_directories(${PROJECT_NAME} PRIVATE
-                          ${LIBTIFF_CONFIG_DIR} ${LIBTIFF_SOURCE_DIR} )
+                          ${LIBTIFF_CONFIG_DIR}
+                          ${LIBTIFF_INCLUDE_DIRS}
+                          ${LIBTIFF_SOURCE_DIR}
+    )
     # target_include_directories(${PROJECT_NAME} PRIVATE
     # "${LIBTIFF_INCLUDE_DIRS}")
 endif()
