@@ -659,7 +659,7 @@ if(LIBTIFF_SOURCE_DIR)
     target_include_directories(${PROJECT_NAME} PRIVATE
                           ${LIBTIFF_CONFIG_DIR}
                           ${LIBTIFF_INCLUDE_DIRS}
-                          ${LIBTIFF_SOURCE_DIR}
+                          # ${LIBTIFF_SOURCE_DIR}
     )
     # target_include_directories(${PROJECT_NAME} PRIVATE
     # "${LIBTIFF_INCLUDE_DIRS}")
