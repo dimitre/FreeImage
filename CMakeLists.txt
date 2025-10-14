@@ -182,6 +182,7 @@ elseif (DEFINED PNG_LIBRARY)
     include_directories(${FreeImage_LIBPNG_SRCS})
 endif()
 
+
 if(BUILD_LIBTIFF)
     set(FreeImage_LIBTIFF_SRCS
         Source/LibTIFF4/mkg3states.c Source/LibTIFF4/tif_error.c Source/LibTIFF4/tif_aux.c
@@ -640,6 +641,26 @@ if (DEFINED CPP_STANDARD)
     set(CMAKE_CXX_STANDARD ${CPP_STANDARD})
 endif()
 
+
+if(LIBTIFF_SOURCE_DIR)
+    # file(GLOB FreeImage_LIBTIFF_SRCS
+    #  CONFIGURE_DEPENDS
+    #  "${LIBTIFF_SOURCE_DIR}/*.c"
+    #  "${LIBTIFF_SOURCE_DIR}/*.h")
+
+    # # drop tif_win32.c unless we are on Windows
+    # if(NOT WIN32)
+    #     list(REMOVE_ITEM FreeImage_LIBTIFF_SRCS
+    #      "${CMAKE_CURRENT_SOURCE_DIR}/your_folder/tif_win32.c")
+    # endif()
+    # list(APPEND FreeImage_SOURCES ${FreeImage_LIBTIFF_SRCS})
+    # add_definitions(-DINCLUDE_LIB_TIFF4)
+
+    target_include_directories(${PROJECT_NAME} PRIVATE
+                           ${LIBTIFF_SOURCE_DIR} ${LIBTIFF_CONFIG_DIR})
+    # target_include_directories(${PROJECT_NAME} PRIVATE
+    # "${LIBTIFF_INCLUDE_DIRS}")
+endif()
 
 # Apple-specific settings
 if (APPLE)
