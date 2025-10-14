@@ -40,7 +40,8 @@
 #ifdef INCLUDE_LIB_TIFF4
 #include "../LibTIFF4/tiffiop.h"
 #else
-#include <tiffiop.h>
+// #include <tiffiop.h>
+#include <tiffio.h>
 #endif
 
 #include "../Metadata/FreeImageTag.h"
