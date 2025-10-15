@@ -23,14 +23,18 @@
 // THIS DISCLAIMER.
 //
 // Use at your own risk!
-// ========================================================== 
+// ==========================================================
 
 #ifdef _MSC_VER
 #pragma warning (disable : 4786) // identifier was truncated to 'number' characters
 #endif
 
+// #include "../LibTIFF4/tiffiop.h"
+#ifdef INCLUDE_LIB_TIFF4
 #include "../LibTIFF4/tiffiop.h"
-
+#else
+#include <tiffio.h>
+#endif
 #include "FreeImage.h"
 #include "Utilities.h"
 #include "FreeImageTag.h"
@@ -116,7 +120,7 @@ tiff_read_geotiff_profile(TIFF *tif, FIBITMAP *dib) {
 	{
 		short tag_count = 0;
 		void* data = NULL;
-		
+
 		if(!TIFFGetField(tif, TIFFTAG_GEOKEYDIRECTORY, &tag_count, &data)) {
 			// no GeoTIFF tag here
 			return TRUE;
@@ -233,7 +237,7 @@ Read a single Exif tag
 @param md_model Metadata model where to store the tag
 @return Returns TRUE if successful, returns FALSE otherwise
 */
-static BOOL 
+static BOOL
 tiff_read_exif_tag(TIFF *tif, uint32_t tag_id, FIBITMAP *dib, TagLib::MDMODEL md_model) {
 	uint32_t value_count = 0;
 	int mem_alloc = 0;
@@ -249,7 +253,7 @@ tiff_read_exif_tag(TIFF *tif, uint32_t tag_id, FIBITMAP *dib, TagLib::MDMODEL md
 		// should be processed in another way ...
 		return TRUE;
 	}
-	
+
 	TagLib& tagLib = TagLib::instance();
 
 	// get the tag key - use NULL to avoid reading GeoTIFF tags
@@ -263,7 +267,7 @@ tiff_read_exif_tag(TIFF *tif, uint32_t tag_id, FIBITMAP *dib, TagLib::MDMODEL md
 		return TRUE;
 	}
 
-	if(TIFFFieldPassCount(fip)) { 
+	if(TIFFFieldPassCount(fip)) {
 		// a count value is required for 'TIFFGetField'
 
 		if (TIFFFieldReadCount(fip) != TIFF_VARIABLE2) {
@@ -310,13 +314,13 @@ tiff_read_exif_tag(TIFF *tif, uint32_t tag_id, FIBITMAP *dib, TagLib::MDMODEL md
 		     || TIFFFieldReadCount(fip) == TIFF_VARIABLE2
 		     || TIFFFieldReadCount(fip) == TIFF_SPP
 			 || value_count > 1)
-			 
+
 			 && TIFFFieldTag(fip) != TIFFTAG_PAGENUMBER
 			 && TIFFFieldTag(fip) != TIFFTAG_HALFTONEHINTS
 			 && TIFFFieldTag(fip) != TIFFTAG_YCBCRSUBSAMPLING
 			 && TIFFFieldTag(fip) != TIFFTAG_DOTRANGE
 
-			 && TIFFFieldTag(fip) != TIFFTAG_BITSPERSAMPLE	//<- these two are tricky - 
+			 && TIFFFieldTag(fip) != TIFFTAG_BITSPERSAMPLE	//<- these two are tricky -
 			 && TIFFFieldTag(fip) != TIFFTAG_COMPRESSION	//<- they are defined as TIFF_VARIABLE but in reality return a single value
 			 ) {
 				 if(TIFFGetField(tif, tag_id, &raw_data) != 1) {
@@ -328,7 +332,7 @@ tiff_read_exif_tag(TIFF *tif, uint32_t tag_id, FIBITMAP *dib, TagLib::MDMODEL md
 
 			// access fields as values
 
-			// Note: 
+			// Note:
 			// For TIFF_RATIONAL values, TIFFDataWidth() returns 8, but LibTIFF use internaly 4-byte float to represent rationals.
 			{
 				TIFFDataType tag_type = TIFFFieldDataType(fip);
@@ -346,8 +350,8 @@ tiff_read_exif_tag(TIFF *tif, uint32_t tag_id, FIBITMAP *dib, TagLib::MDMODEL md
 			raw_data = _TIFFmalloc(value_size * value_count);
 			mem_alloc = 1;
 			int ok = FALSE;
-			
-			// ### if value_count > 1, tag is PAGENUMBER or HALFTONEHINTS or YCBCRSUBSAMPLING or DOTRANGE, 
+
+			// ### if value_count > 1, tag is PAGENUMBER or HALFTONEHINTS or YCBCRSUBSAMPLING or DOTRANGE,
 			// all off which are value_count == 2 (see tif_dirinfo.c)
 			switch(value_count)
 			{
@@ -491,21 +495,21 @@ tiff_read_exif_tag(TIFF *tif, uint32_t tag_id, FIBITMAP *dib, TagLib::MDMODEL md
 			FreeImage_SetTagValue(fitag, raw_data);
 			break;
 
-		case TIFF_LONG8:	// BigTIFF 64-bit unsigned integer 
+		case TIFF_LONG8:	// BigTIFF 64-bit unsigned integer
 			FreeImage_SetTagType(fitag, FIDT_LONG8);
 			FreeImage_SetTagLength(fitag, TIFFDataWidth( TIFFFieldDataType(fip) ) * value_count);
 			FreeImage_SetTagCount(fitag, value_count);
 			FreeImage_SetTagValue(fitag, raw_data);
 			break;
 
-		case TIFF_IFD8:		// BigTIFF 64-bit unsigned integer (offset) 
+		case TIFF_IFD8:		// BigTIFF 64-bit unsigned integer (offset)
 			FreeImage_SetTagType(fitag, FIDT_IFD8);
 			FreeImage_SetTagLength(fitag, TIFFDataWidth( TIFFFieldDataType(fip) ) * value_count);
 			FreeImage_SetTagCount(fitag, value_count);
 			FreeImage_SetTagValue(fitag, raw_data);
 			break;
 
-		case TIFF_SLONG8:		// BigTIFF 64-bit signed integer 
+		case TIFF_SLONG8:		// BigTIFF 64-bit signed integer
 			FreeImage_SetTagType(fitag, FIDT_SLONG8);
 			FreeImage_SetTagLength(fitag, TIFFDataWidth( TIFFFieldDataType(fip) ) * value_count);
 			FreeImage_SetTagCount(fitag, value_count);
@@ -558,7 +562,7 @@ Read all known exif tags
 @param dib Image being read
 @return Returns TRUE if successful, returns FALSE otherwise
 */
-BOOL 
+BOOL
 tiff_read_exif_tags(TIFF *tif, TagLib::MDMODEL md_model, FIBITMAP *dib) {
 
 	TagLib& tagLib = TagLib::instance();
@@ -623,7 +627,7 @@ tiff_read_exif_tags(TIFF *tif, TagLib::MDMODEL md_model, FIBITMAP *dib) {
 /**
 Skip tags that are already handled by the LibTIFF writing process
 */
-static BOOL 
+static BOOL
 skip_write_field(TIFF* tif, uint32_t tag) {
 	switch (tag) {
 		case TIFFTAG_SUBFILETYPE:
@@ -670,7 +674,7 @@ skip_write_field(TIFF* tif, uint32_t tag) {
 			// skip always, values have been set in SaveOneTIFF()
 			return TRUE;
 			break;
-		
+
 		case TIFFTAG_RICHTIFFIPTC:
 			// skip always, IPTC metadata model is set in tiff_write_iptc_profile()
 			return TRUE;
@@ -682,7 +686,7 @@ skip_write_field(TIFF* tif, uint32_t tag) {
 			// skip as they cannot be filled yet
 			return TRUE;
 			break;
-			
+
 		case TIFFTAG_PAGENAME:
 		{
 			char *value = NULL;
@@ -708,24 +712,24 @@ Write all known exif tags
 @param dib Image being written
 @return Returns TRUE if successful, returns FALSE otherwise
 */
-BOOL 
+BOOL
 tiff_write_exif_tags(TIFF *tif, TagLib::MDMODEL md_model, FIBITMAP *dib) {
 	char defaultKey[16];
-	
+
 	// only EXIF_MAIN so far
 	if(md_model != TagLib::EXIF_MAIN) {
 		return FALSE;
 	}
-	
+
 	if(FreeImage_GetMetadataCount(FIMD_EXIF_MAIN, dib) == 0) {
 		return FALSE;
 	}
-	
+
 	TagLib& tag_lib = TagLib::instance();
-	
+
 	for (int fi = 0, nfi = (int)tif->tif_nfields; nfi > 0; nfi--, fi++) {
 		const TIFFField *fld = tif->tif_fields[fi];
-		
+
 		const uint32_t tag_id = TIFFFieldTag(fld);
 
 		if(skip_write_field(tif, tag_id)) {
@@ -740,7 +744,7 @@ tiff_write_exif_tags(TIFF *tif, TagLib::MDMODEL md_model, FIBITMAP *dib) {
 		if(FreeImage_GetMetadata(FIMD_EXIF_MAIN, dib, key, &tag)) {
 			FREE_IMAGE_MDTYPE tag_type = FreeImage_GetTagType(tag);
 			TIFFDataType tif_tag_type = TIFFFieldDataType(fld);
-			
+
 			// check for identical formats
 
 			// (enum value are the sames between FREE_IMAGE_MDTYPE and TIFFDataType types)
