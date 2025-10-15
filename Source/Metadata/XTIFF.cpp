@@ -33,7 +33,7 @@
 #ifdef INCLUDE_LIB_TIFF4
 #include "../LibTIFF4/tiffiop.h"
 #else
-#include <libtiff/tiffiop.h>
+#include <tiffiop.h>
 #endif
 #include "FreeImage.h"
 #include "Utilities.h"
