@@ -642,7 +642,7 @@ if (DEFINED CPP_STANDARD)
 endif()
 
 
-if(LIBTIFF_SOURCE_DIR)
+if(LIBTIFF_INCLUDE_DIRS)
     # file(GLOB FreeImage_LIBTIFF_SRCS
     #  CONFIGURE_DEPENDS
     #  "${LIBTIFF_SOURCE_DIR}/*.c"
@@ -659,7 +659,7 @@ if(LIBTIFF_SOURCE_DIR)
     target_include_directories(${PROJECT_NAME} PRIVATE
                           ${LIBTIFF_CONFIG_DIR}
                           ${LIBTIFF_INCLUDE_DIRS}
-                          # ${LIBTIFF_SOURCE_DIR}
+                           ${LIBTIFF_SOURCE_DIR}
     )
     # target_include_directories(${PROJECT_NAME} PRIVATE
     # "${LIBTIFF_INCLUDE_DIRS}")
