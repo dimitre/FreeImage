@@ -160,8 +160,10 @@ if(BUILD_LIBJPEG)
     )
     list(APPEND FreeImage_SOURCES ${FreeImage_LIBJPEG_SRCS})
     include_directories(Source/LibJPEG)
+elseif (DEFINED JPEG_LIBRARY)
+    list(APPEND FreeImage_LIBS ${JPEG_LIBRARY})
+    include_directories(${FreeImage_LIBJPEG_SRCS})
 endif()
-
 
 
 if(BUILD_LIBPNG)
