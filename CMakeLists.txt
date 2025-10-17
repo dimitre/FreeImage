@@ -214,6 +214,24 @@ if(BUILD_LIBTIFF)
     add_definitions(-DINCLUDE_LIB_TIFF4)
 endif()
 
+if(LIBTIFF_SOURCE_DIR)
+    file(GLOB _srcs
+     CONFIGURE_DEPENDS
+     "${CMAKE_CURRENT_SOURCE_DIR}/*.c"
+     "${CMAKE_CURRENT_SOURCE_DIR}/*.h")
+
+    # drop tif_win32.c unless we are on Windows
+    if(NOT WIN32)
+        list(REMOVE_ITEM _srcs
+         "${CMAKE_CURRENT_SOURCE_DIR}/tif_win32.c")
+    endif()
+
+    list(APPEND FreeImage_SOURCES ${_srcs})
+    add_definitions(-DINCLUDE_LIB_TIFF4)
+    # target_sources(your_target PRIVATE ${_srcs})
+endif()
+
+
 if(BUILD_ZLIB)
     set(FreeImage_ZLIB_SRCS
         Source/ZLib/adler32.c Source/ZLib/compress.c Source/ZLib/crc32.c Source/ZLib/deflate.c
