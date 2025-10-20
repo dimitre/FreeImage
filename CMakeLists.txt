@@ -219,13 +219,13 @@ endif()
 if(LIBTIFF_SOURCE_DIR)
     file(GLOB _srcs
      CONFIGURE_DEPENDS
-     "${CMAKE_CURRENT_SOURCE_DIR}/*.c"
-     "${CMAKE_CURRENT_SOURCE_DIR}/*.h")
+     "${LIBTIFF_SOURCE_DIR}/*.c"
+     "${LIBTIFF_SOURCE_DIR}/*.h")
 
     # drop tif_win32.c unless we are on Windows
     if(NOT WIN32)
         list(REMOVE_ITEM _srcs
-         "${CMAKE_CURRENT_SOURCE_DIR}/tif_win32.c")
+         "${LIBTIFF_SOURCE_DIR}/tif_win32.c")
     endif()
 
     list(APPEND FreeImage_SOURCES ${_srcs})
