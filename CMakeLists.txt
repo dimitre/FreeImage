@@ -607,7 +607,7 @@ include_directories(Source/FreeImageToolkit)
 
 if (DEFINED LIBTIFF_INCLUDE_DIRS)
     include_directories(${LIBTIFF_INCLUDE_DIRS})
-    list(APPEND FreeImage_LIBS LibTIFF)
+    target_include_directories(my_target PRIVATE ${LIBTIFF_INCLUDE_DIRS})
 endif()
 
 if (DEFINED LIBTIFF_ROOT)
@@ -617,6 +617,7 @@ if (DEFINED LIBTIFF_ROOT)
         IMPORTED_LOCATION "${LIBTIFF_LIBRARY}"
     )
     target_include_directories(LibTIFF INTERFACE "${LIBTIFF_INCLUDE_DIRS}")
+    list(APPEND FreeImage_LIBS LibTIFF)
     # add_definitions(-DINCLUDE_LIB_TIFF4)
 endif()
 
