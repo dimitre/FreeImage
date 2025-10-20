@@ -605,16 +605,18 @@ include_directories(Source/FreeImageToolkit)
 #     add_definitions(-DINCLUDE_LIB_TIFF4)
 # endif()
 
+if (DEFINED LIBTIFF_INCLUDE_DIRS)
+    target_include_directories(LibTIFF INTERFACE "${LIBTIFF_INCLUDE_DIRS}")
+    include_directories(${LIBTIFF_INCLUDE_DIRS})
+    list(APPEND FreeImage_LIBS LibTIFF)
+endif()
+
 if (DEFINED LIBTIFF_ROOT)
     message(STATUS "The value of LIBTIFF_ROOT is: ${LIBTIFF_ROOT}")
-
     add_library(LibTIFF STATIC IMPORTED)
     set_target_properties(LibTIFF PROPERTIES
         IMPORTED_LOCATION "${LIBTIFF_LIBRARY}"
     )
-    target_include_directories(LibTIFF INTERFACE "${LIBTIFF_INCLUDE_DIRS}")
-    include_directories(${LIBTIFF_INCLUDE_DIRS})
-    list(APPEND FreeImage_LIBS LibTIFF)
     # add_definitions(-DINCLUDE_LIB_TIFF4)
 endif()
 
