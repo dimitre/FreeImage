@@ -610,7 +610,7 @@ include_directories(Source/FreeImageToolkit)
 
 if (DEFINED LIBTIFF_INCLUDE_DIRS)
     include_directories(${LIBTIFF_INCLUDE_DIRS})
-    target_include_directories(${PROJECT_NAME} PRIVATE ${LIBTIFF_INCLUDE_DIRS})
+    # target_include_directories(${PROJECT_NAME} PRIVATE ${LIBTIFF_INCLUDE_DIRS})
 endif()
 
 if (DEFINED LIBTIFF_ROOT)
