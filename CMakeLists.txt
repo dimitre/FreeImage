@@ -252,8 +252,14 @@ if(BUILD_ZLIB)
     include_directories(Source/ZLib)
     add_definitions(-DINCLUDE_LIB_ZLIB)
 elseif (DEFINED ZLIB_LIBRARY)
-    list(APPEND FreeImage_LIBS ${ZLIB_LIBRARY})
-    include_directories(${FreeImage_ZLIB_SRCS})
+    file(GLOB _srcs CONFIGURE_DEPENDS
+        "${ZLIB_SOURCE_DIR}/*.c"
+        "${ZLIB_SOURCE_DIR}/*.h")
+
+    list(APPEND FreeImage_SOURCES ${_srcs})
+    # list(APPEND FreeImage_LIBS ${ZLIB_LIBRARY})
+    include_directories(${ZLIB_SOURCE_DIR})
+    add_definitions(-DINCLUDE_LIB_ZLIB)
 endif()
 
 if(BUILD_JXR)
