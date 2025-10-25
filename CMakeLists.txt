@@ -259,6 +259,7 @@ elseif (DEFINED ZLIB_LIBRARY)
     list(APPEND FreeImage_SOURCES ${_srcs})
     # list(APPEND FreeImage_LIBS ${ZLIB_LIBRARY})
     include_directories(${ZLIB_SOURCE_DIR})
+    include_directories(${ZLIB_INCLUDE_DIRS})
     add_definitions(-DINCLUDE_LIB_ZLIB)
 endif()
 
