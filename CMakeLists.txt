@@ -222,6 +222,9 @@ if(LIBTIFF_SOURCE_DIR)
      "${LIBTIFF_SOURCE_DIR}/*.c"
      "${LIBTIFF_SOURCE_DIR}/*.h")
 
+    list(REMOVE_ITEM _srcs
+     "${LIBTIFF_SOURCE_DIR}/mkspans.c")
+
     # drop tif_win32.c unless we are on Windows
     if(NOT WIN32)
         list(REMOVE_ITEM _srcs
